@@ -126,10 +126,12 @@
 
 #myBtn::before {
     content: "\2BC5";  /* Unicode for the up arrow */
+    font-family: Arial, sans-serif;
 }
 
 #myBtn2::before {
     content: "\2BC6";  /* Unicode for the down arrow */
+    font-family: Arial, sans-serif;
 }
 
 #myBtn:hover,
