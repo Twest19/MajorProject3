@@ -1,0 +1,72 @@
+.custom-link {
+    color: blue; /* Change to any color you like */
+    text-decoration: underline; /* This will underline the link */
+    font-weight: bold; /* Optional: Makes the link text bold */
+    transition: color 0.3s; /* Optional: Smooth color transition effect on hover */
+}
+
+.custom-link:hover {
+    color: #2c3e50; /* Change to any hover color you like */
+}
+
+.note {
+    color: orange;
+}
+
+.warning {
+    color: red;
+}
+
+.bold-italic {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.custom-ol {
+    list-style-type: none;
+    counter-reset: item;
+}
+
+.custom-ol > li::before {
+    counter-increment: item;
+    content: counter(item) ". ";
+    font-weight: bold;
+    font-size: 1.25em; 
+}
+
+.custom-ol > li {
+    font-weight: normal;
+}
+
+
+.custom-ol2 {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 20px; /* Removes padding */
+}
+
+.custom-ol2 > li::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    font-weight: bold; 
+    margin-right: 19px;
+}
+
+.custom-ol2 > li {
+    font-weight: normal;
+}
+
+.fit-smaller {
+    width: 50%;
+}
+
+/* Media query for screens 600px wide or smaller */
+@media screen and (max-width: 600px) {
+    .fit-smaller {
+        width: 100%;
+    }
+}
