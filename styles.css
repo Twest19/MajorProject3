@@ -1,3 +1,26 @@
+
+.brand-green {
+    background-color: #232D3F !important;
+    color: white;
+}
+
+.brand-text-green {
+    color: #005B41;
+}
+
+.brand-text-blue {
+    color: #232D3F;
+}
+
+.brand-border {
+    width: 50px; 
+    border: 5px solid #008170;
+}
+
+.brand-secondary {
+    color: #008170;
+}
+
 .custom-link {
     color: blue; /* Change to any color you like */
     text-decoration: underline; /* This will underline the link */
