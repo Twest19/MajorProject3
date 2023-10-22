@@ -125,13 +125,16 @@
 }
 
 #myBtn::before {
-    content: "\2BC5";  /* Unicode for the up arrow */
-    font-family: Arial, sans-serif;
+    content: "\f106"; /* Font Awesome Unicode for up arrow */
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; /* necessary for solid icons */
 }
 
+
 #myBtn2::before {
-    content: "\2BC6";  /* Unicode for the down arrow */
-    font-family: Arial, sans-serif;
+    content: "\f107"; /* Font Awesome Unicode for up arrow */
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; /* necessary for solid icons */
 }
 
 #myBtn:hover,
@@ -143,6 +146,12 @@
 @media only screen and (max-width: 1080px) {
     #buttonContainer {
         right: calc(10% - 60px);   /* adjust distance from the right side */
+    }
+
+    #myBtn:hover,
+    #myBtn2:hover {
+        background-color: #005B41;
+    /* Add a dark-grey background on hover */
     }
 }
 
