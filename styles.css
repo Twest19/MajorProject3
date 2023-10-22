@@ -93,3 +93,55 @@
         width: 100%;
     }
 }
+
+
+#buttonContainer {
+    position: fixed;
+    top: 80%;
+    right: calc(30% - 60px);
+    transform: translateY(-80%);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;  /* Stack the children vertically */
+    gap: 10px;  /* Space between the buttons */
+    
+}
+
+#myBtn,
+#myBtn2 {
+    display: none;  /* Hidden by default */
+    /* No need for fixed position here */
+    border: none;  /* Remove borders */
+    outline: none;  /* Remove outline */
+    background-color: #005B41;  /* Set a background color */
+    color: white;  /* Text color */
+    cursor: pointer;  /* Add a mouse pointer on hover */
+    width: 60px;  /* Set width */
+    height: 60px;  /* Set height */
+    border-radius: 50%;  /* Makes it round */
+    text-align: center;  /* Center the content */
+    font-size: 30px;  /* Increase font size */
+    line-height: 60px;  /* Align the content vertically */
+}
+
+#myBtn::before {
+    content: "\2BC5";  /* Unicode for the up arrow */
+}
+
+#myBtn2::before {
+    content: "\2BC6";  /* Unicode for the down arrow */
+}
+
+#myBtn:hover,
+#myBtn2:hover {
+    background-color: #555;  /* Add a dark-grey background on hover */
+}
+
+/* Media query for screens with a max-width of 768px (usually tablets and below) */
+@media only screen and (max-width: 768px) {
+    #buttonContainer {
+        right: 5px;   /* adjust distance from the right side */
+        top: 90%;     /* move it further down */
+        transform: translateY(-90%);  /* adjust transform to match the top value */
+    }
+}
