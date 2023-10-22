@@ -670,6 +670,7 @@
       // Get the button:
       let mybutton = document.getElementById("myBtn");
       let mybutton2 = document.getElementById("myBtn2");
+      let btnHidden = false;
 
       // When the user scrolls down 20px from the top of the document, show the button
       window.onscroll = function () {
@@ -710,6 +711,11 @@
           document.documentElement.scrollHeight; // For Chrome, Firefox, IE, and Opera
       }
 
+      function hideButton() {
+        mybutton.style.display = "none";
+        mybutton2.style.display = "none";
+      }
+
       // Script to open and close sidebar
       function w3_open() {
         document.getElementById("mySidebar").style.display = "block";
@@ -727,6 +733,11 @@
         document.getElementById("modal01").style.display = "block";
         var captionText = document.getElementById("caption");
         captionText.innerHTML = element.alt;
+
+        if (btnHidden == false) {
+          hideButton();
+          btnHidden = true;
+        }
       }
     </script>
   </body>
