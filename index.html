@@ -1,745 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>MP3 Technical Instructions</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        font-family: "Roboto", sans-serif;
-      }
-      body {
-        font-size: 16px;
-      }
-      .w3-twothird img,
-      .w3-rest img,
-      .w3-half img {
-        opacity: 1;
-        cursor: pointer;
-      }
-      .w3-twothird img:hover,
-      .w3-rest img:hover,
-      .w3-half img:hover {
-        opacity: 0.8;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Sidebar/menu -->
-    <nav
-      class="brand-green w3-sidebar w3-collapse w3-top w3-large w3-padding"
-      style="z-index: 3; width: 300px; font-weight: bold"
-      id="mySidebar"
-    >
-      <br />
-      <a
-        href="javascript:void(0)"
-        onclick="w3_close()"
-        class="w3-button w3-hide-large w3-display-topleft"
-        style="width: 100%; font-size: 22px"
-        >Close Menu</a
-      >
-      <div class="w3-container">
-        <h3 class="w3-padding-64 w3-xxlarge" style="font-weight: bold">
-          <b>ABC123<br />Corp.<br />Copilot Guide</b>
-        </h3>
-      </div>
-      <div class="w3-bar-block">
-        <a
-          href="#introduction"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Introduction</a
-        >
-        <a
-          href="#prereq"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Prerequisites</a
-        >
-        <a
-          href="#setup"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Set Up</a
-        >
-        <a
-          href="#basics"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Basic Uses</a
-        >
-        <a
-          href="#chat"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Chat Features</a
-        >
-        <a
-          href="#closing"
-          onclick="w3_close()"
-          class="w3-bar-item w3-button w3-hover-white"
-          >Closing</a
-        >
-      </div>
-    </nav>
 
-    <!-- Top menu on small screens -->
-    <header class="brand-green w3-top w3-hide-large w3-xlarge w3-padding">
-      <a
-        href="javascript:void(0)"
-        class="w3-button brand-green w3-margin-right"
-        onclick="w3_open()"
-        >☰</a
-      >
-      <span>Copilot Guide</span>
-    </header>
+<head>
+  <title>MP3 Technical Instructions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Roboto", sans-serif;
+    }
 
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <div
-      class="w3-overlay w3-hide-large"
-      onclick="w3_close()"
-      style="cursor: pointer"
-      title="close side menu"
-      id="myOverlay"
-    ></div>
+    body {
+      font-size: 16px;
+    }
 
+    .w3-twothird img,
+    .w3-rest img,
+    .w3-half img {
+      opacity: 1;
+      cursor: pointer;
+    }
 
-    <!-- !PAGE CONTENT! -->
-    <div class="w3-main fit-smaller" style="margin-left: 340px">
-      <!-- Header -->
-      <div class="w3-container" style="margin-top: 80px" id="introduction">
-        <h1 class="w3-xxxlarge brand-text-blue">
-          <b>Set Up and Use GitHub Copilot With VS Code</b>
-        </h1>
-        <h1 class="w3-xxlarge brand-secondary"><b>Introduction</b></h1>
-        <hr class="w3-round brand-border" />
-        <p>
-          GitHub Copilot is a great way to enhance and speed up your coding
-          ability by leveraging Artificial Intelligence (AI) for code completion
-          and suggestions. This page is designed to help guide ABC123 Corp.
-          software developers through the basics of setting up and using GitHub
-          Copilot.
-        </p>
-      </div>
+    .w3-twothird img:hover,
+    .w3-rest img:hover,
+    .w3-half img:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
 
-      <!-- Prerequisites -->
-      <div class="w3-container" id="prereq" style="margin-top: 20px">
-        <h1 class="w3-xxlarge brand-secondary"><b>Prerequisites</b></h1>
-        <hr class="w3-round brand-border" />
-        <p>
-          Before going further, you must ensure that you have the appropriate
-          accounts set up and programs downloaded. Any steps involving the setup
-          of any prerequisites will not be covered in depth in this guide.
-          Please consult the respective documentation for the following
-          resources if you are unfamiliar.
-        </p>
-        <!-- List of Prerequisites -->
-        <ul class="w3-ul" style="list-style-type: disc; padding-left: 20px">
-          <!-- Visual Studio Code -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Visual Studio Code:</span
-            >
-            Ensure that Visual Studio Code (VS Code) is installed on your
-            computer. If not, you can
-            <a href="https://code.visualstudio.com/download" class="custom-link"
-              >download VS Code here.</a
-            >
-            <br /><br />
-            <span class="note w3-large" style="font-weight: bold">*Note:</span>
-            This guide focuses on setting up and using GitHub Copilot with VS
-            Code, but GitHub Copilot officially supports other editors like
-            <a
-              href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilotvs"
-              class="custom-link"
-              >Visual Studio</a
-            >,
-            <a href="https://github.com/github/copilot.vim" class="custom-link"
-              >Neovim</a
-            >, and
-            <a
-              href="https://docs.github.com/en/copilot/getting-started-with-github-copilot?tool=jetbrains#about-github-copilot-and-jetbrains-ides"
-              class="custom-link"
-              >JetBrains IDEs.</a
-            >
-            There are also many unofficial plugins for integrating GitHub
-            Copilot with other editors, but results when using unofficial
-            plugins may vary.
-          </li>
-
-          <!-- GitHub-->
-          <li>
-            <span class="w3-large" style="font-weight: bold">GitHub:</span> A
-            GitHub account is required for GitHub Copilot integration. If you do
-            not have a GitHub account, you can create one for free on
-            <a href="https://github.com/" class="custom-link">GitHub.com.</a>
-            Once you have a GitHub account, you must ensure your account has the
-            GitHub Copilot permissions enabled. You can follow
-            <a
-              href="https://docs.github.com/en/copilot/quickstart#signing-up-for-github-copilot-for-your-personal-account"
-              class="custom-link"
-              >GitHub's official documentation</a
-            >
-            to complete this step.
-            <br /><br />
-
-            <span class="note w3-large" style="font-weight: bold">*Note:</span>
-            ABC123 Corp. provides you with a subscription to GitHub Copilot
-            through the company business account. You do not need to purchase a
-            subscription yourself. Access to GitHub Copilot will be granted to
-            you by account administrators. If you are having trouble activating
-            GitHub Copilot on your GitHub account, please reach out to your team
-            manager.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Set Up -->
-      <div class="w3-container" id="setup" style="margin-top: 20px">
-        <h1 class="w3-xxlarge brand-secondary">
-          <b>Setting Up GitHub Copilot in VS Code:</b>
-        </h1>
-        <hr class="w3-round brand-border" />
-        <ol type="1" class="custom-ol" style="padding-left: 0px">
-          <!-- Launch VS Code -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Launch VS Code</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                If this is your first time launching VS Code, you may be
-                prompted with additional setup steps. Simply follow the prompts
-                before continuing to the next step.
-              </li>
-              <li>
-                Closing out any currently open projects or code files within VS
-                Code is not required to continue.
-              </li>
-            </ul>
-          </li>
-
-          <!-- Install Extension -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Access the Extension Icon</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                Locate the sidebar on the left or right-hand side of your
-                screen.
-              </li>
-              <li>
-                Select the square grid-shaped icon called
-                <strong>“Extensions”</strong> or use the keyboard shortcut
-                <code class="bold">Ctrl+Shift+X</code>
-                on Windows/Linux or
-                <code class="bold">Shift+CMD+X</code> on Mac. <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-twothird">
-                    <img
-                      src="assets\images\copilotExt.png"
-                      style="width: 40%"
-                      onclick="onClick(this)"
-                      alt="VS Code Extensions Icon"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>The Extensions view should now be open.</li>
-            </ul>
-          </li>
-
-          <!-- Search Extension -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Search for “GitHub Copilot”</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                In the Extensions view search bar, search
-                <strong>“GitHub Copilot”</strong> and a few results will appear.
-                <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotResults.png"
-                      style="width: 40%"
-                      onclick="onClick(this)"
-                      alt="Copilot search results"
-                    />
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Install Extension -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Install GitHub Copilot</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                Click the <strong>“Install”</strong> button next to the official
-                GitHub Copilot extension (signified by a checkmark below the
-                name).
-              </li>
-              <li>
-                <span class="bold-italic">(OPTIONAL)</span> You can also click
-                the GitHub Copilot extension to find more information and to
-                install the extension. The <strong>“Install”</strong> button is
-                at the top of the page, just below the title. <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotInfo.png"
-                      style="width: 40%"
-                      onclick="onClick(this)"
-                      alt="Copilot extension info page"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span class="bold-italic">(OPTIONAL)</span> Clicking the arrow
-                next to <strong>“Install”</strong> will allow you to select
-                which version of GitHub Copilot you want to download. Some newer
-                features may only appear in the pre-release version until those
-                features are officially released. <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotVersion.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Copilot version selection"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>
-                Any of these options will install both GitHub Copilot and GitHub
-                Copilot Chat.
-              </li>
-            </ul>
-          </li>
-
-          <!-- Sign In -->
-          <li>
-            <span class="w3-large" style="font-weight: bold">
-              Sign In With GitHub (if you have not already)
-            </span>
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                A GitHub sign-in request will pop up in the bottom right corner
-                if you have not yet signed into GitHub on VS Code.
-                <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\githubSign.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="GitHub sign-in request pop-up"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>
-                From here, follow the on-screen instructions to finish your
-                GitHub Copilot installation.
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Basics -->
-      <div class="w3-container" id="basics" style="margin-top: 20px">
-        <h1 class="w3-xxlarge brand-secondary"><b>Using GitHub Copilot:</b></h1>
-        <hr class="w3-round brand-border" />
-        <ol type="1" class="custom-ol" style="padding-left: 0px">
-          <!-- Launch VS Code -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Create or Open a File in VS Code</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                For the following steps, you can follow along with an existing
-                code file or create a new file for your chosen programming
-                language.
-              </li>
-            </ul>
-          </li>
-
-          <!-- Install Extension -->
-          <li>
-            <span class="w3-large" style="font-weight: bold">Begin Coding</span>
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                As you type, you will begin to see GitHub Copilot making code
-                suggestions.
-                <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotSugg.png"
-                      style="width: 80%"
-                      onclick="onClick(this)"
-                      alt="Copilot example suggestions"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span style="font-weight: bold">Accepting Suggestions - </span>
-                Hit <strong>“Tab”</strong> on your keyboard to accept the GitHub
-                Copilot suggestion, or hold “Ctrl” and tap the “right arrow key”
-                to start accepting portions of the suggestion.
-              </li>
-              <li>
-                <span style="font-weight: bold">Dismissing Suggestions - </span>
-                Hit <strong>“Esc”</strong> on your keyboard to dismiss the
-                suggestion or just continue typing to ignore the suggestion
-              </li>
-              <li>
-                A complete list of GitHub Copilot shortcuts for all platforms
-                can be found on the
-                <a
-                  href="https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment#keyboard-shortcuts-for-macos"
-                  class="custom-link"
-                  >GitHub's official documentation
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Chat Feature -->
-      <div class="w3-container" id="chat" style="margin-top: 20px">
-        <h1 class="w3-xxlarge brand-secondary">
-          <b>Accessing GitHub Copilot Chat</b>
-        </h1>
-        <hr class="w3-round brand-border" />
-        <ol type="1" class="custom-ol" style="padding-left: 0px">
-          <!-- Open Copilot Chat-->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Open GitHub Copilot Chat</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                Use the keyboard command
-                <code class="bold">Ctrl+I</code>
-                on Windows/Linux or
-                <code class="bold">CMD+I</code>
-                on Mac to reveal the GitHub Copilot chat window.
-              </li>
-            </ul>
-            <strong>OR</strong>
-            <ol
-              type="a"
-              class="custom-ol2"
-              style="padding-top: 10px; padding-bottom: 10px"
-            >
-              <li>Right-click inside your open code file.</li>
-              <li>
-                Find and hover over <strong>“Copilot”</strong> in the menu.
-              </li>
-              <li>Click on <strong>“Start Code Chat.”</strong></li>
-              <br />
-              <!-- Photo grid (modal) -->
-              <div class="w3-row-padding" style="padding-left: 40px">
-                <div class="w3-twothird">
-                  <img
-                    src="assets\images\copilotNoKey.png"
-                    style="width: 50%"
-                    onclick="onClick(this)"
-                    alt="Copilot chat w/o keyboard shortcut"
-                  />
-                </div>
-              </div>
-            </ol>
-          </li>
-
-          <!-- Type Question -->
-          <li>
-            <span class="w3-large" style="font-weight: bold"
-              >Type Your Question</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                Type your question and hit <strong>“Enter”</strong> on your
-                keyboard for a response. <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotQA.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Copilot example question and response"
-                    />
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <strong>OR</strong>
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                Type a <strong>“/”</strong> slash to see a list of the built-in
-                slash commands. <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotSlash.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Example of Copilot slash commands"
-                    />
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <!-- Expand Chat -->
-          <li>
-            <span class="bold-italic">(OPTIONAL)</span>
-            <span class="w3-large" style="font-weight: bold"
-              >Expanded Chat</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                After receiving a response to your initial question, click
-                <strong>“View in Chat”</strong> to open the larger chat window
-                containing all your GitHub Copilot questions and answers.
-                <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-half">
-                    <img
-                      src="assets\images\copilotChat1.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Example of Copilot chat window 1"
-                    />
-                  </div>
-                  <div class="w3-half">
-                    <img
-                      src="assets\images\copilotChat2.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Example of Copilot chat window 2"
-                    />
-                  </div>
-                </div>
-              </li>
-              <li>
-                You can make the chat window even larger by clicking the three
-                dots icon at the top of the chat window and selecting
-                <strong>“Open Session in Editor.”</strong>
-                <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotOpenSesh.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Copilot Open Session in editor button"
-                    />
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <span class="bold-italic">(OPTIONAL)</span>
-            <span class="w3-large" style="font-weight: bold"
-              >Clear Expanded Chat</span
-            >
-            <ul class="w3-ul" style="list-style-type: disc; padding-left: 40px">
-              <li>
-                You can clear your GitHub Copilot Chat history by going to the
-                top of the expanded chat window and clicking the
-                <strong>“Clear”</strong> button with the
-                <strong>"three lines and an x”</strong> icon. <br /><br />
-                <span class="warning w3-large" style="font-weight: bold"
-                  >Warning:</span
-                >
-                This will instantly delete everything in the chat history. No
-                additional prompts will pop up after clicking the
-                <strong>“Clear”</strong> button! <br /><br />
-                <!-- Photo grid (modal) -->
-                <div class="w3-row-padding">
-                  <div class="w3-rest">
-                    <img
-                      src="assets\images\copilotClear.png"
-                      style="width: 50%"
-                      onclick="onClick(this)"
-                      alt="Copilot Clear button"
-                    />
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Closing -->
-      <div class="w3-container" id="closing" style="margin-top: 20px">
-        <h1 class="w3-xxlarge brand-secondary"><b>Dive Deeper</b></h1>
-        <hr class="w3-round brand-border" />
-        <p>
-          GitHub Copilot is a fascinating tool that can help boost your
-          productivity as a programmer. Always remember to review and understand
-          the generated code, as this will benefit your own learning and prevent
-          a buggy piece of generated code from being implemented into your
-          project.
-        </p>
-      </div>
-
-      <!-- End page content -->
+<body>
+  <!-- Sidebar/menu -->
+  <nav class="brand-green w3-sidebar w3-collapse w3-top w3-large w3-padding"
+    style="z-index: 3; width: 300px; font-weight: bold" id="mySidebar">
+    <br />
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+      style="width: 100%; font-size: 22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64 w3-xxlarge" style="font-weight: bold">
+        <b>ABC123<br />Corp.<br />Copilot Guide</b>
+      </h3>
     </div>
-    <div id="buttonContainer">
-      <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
-      <button onclick="goToBottom()" id="myBtn2" title="Go to bottom"></button>
+    <div class="w3-bar-block">
+      <a href="#introduction" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Introduction</a>
+      <a href="#prereq" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Prerequisites</a>
+      <a href="#setup" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Setting Up</a>
+      <a href="#basics" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Using Copilot</a>
+      <a href="#chat" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Chat Features</a>
+      <a href="#closing" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Dive Deeper</a>
     </div>
-    <!-- W3.CSS Container -->
-    <div
-      class="w3-light-grey w3-container w3-padding-32"
-      style="margin-top: 75px; padding-right: 58px"
-    >
-      <p class="w3-right">
-        Created by
-        <a
-          href="https://github.com/Twest19"
-          title="Tim West"
-          target="_blank"
-          class="w3-hover-opacity"
-          >Tim West</a
-        >
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="brand-green w3-top w3-hide-large w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button brand-green w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Copilot Guide</span>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor: pointer" title="close side menu"
+    id="myOverlay"></div>
+
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main fit-smaller" style="margin-left: 340px">
+    <!-- Header -->
+    <div class="w3-container" style="margin-top: 80px" id="introduction">
+      <h1 class="w3-xxxlarge brand-text-blue">
+        <b>Setting Up and Using GitHub Copilot With VS Code</b>
+      </h1>
+      <h1 class="w3-xxlarge brand-secondary"><b>Introduction</b></h1>
+      <hr class="w3-round brand-border" />
+      <p>
+        GitHub Copilot enhances and speeds up your coding ability by leveraging Artificial Intelligence (AI) for code
+        completion and suggestions. This guide provides ABC123 Corp. software developers with step-by-step instructions
+        on how to set up and get going with GitHub Copilot.
       </p>
     </div>
 
-    <!-- Modal for full size images on click-->
-    <div
-      id="modal01"
-      class="w3-modal w3-black"
-      style="padding-top: 0"
-      onclick="this.style.display='none'"
-    >
-      <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-      <div
-        class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"
-      >
-        <img id="img01" class="w3-image" />
-        <p id="caption"></p>
-      </div>
+    <!-- Prerequisites -->
+    <div class="w3-container" id="prereq" style="margin-top: 20px">
+      <h1 class="w3-xxlarge brand-secondary"><b>Prerequisites</b></h1>
+      <hr class="w3-round brand-border" />
+      <p>
+        Before proceeding, ensure you set up the required accounts and download the necessary programs. This guide does
+        not cover the setup of these prerequisites in detail. Please consult the respective documentation for any
+        unfamiliar resources that are linked throughout this guide.
+
+      </p>
+      <!-- List of Prerequisites -->
+      <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 20px">
+        <!-- Visual Studio Code -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Visual Studio Code:</span>
+          Install Visual Studio Code (VS Code) on your computer if you have not already.
+          <a href="https://code.visualstudio.com/download" class="custom-link">Download VS Code here.</a>
+          <br /><br />
+          <span class="note w3-large" style="font-weight: bold">*Note:</span>
+          This guide specifically addresses GitHub Copilot installation and use with VS Code. However, GitHub Copilot
+          also officially supports other editors, including
+          <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilotvs" class="custom-link">Visual
+            Studio</a>,
+          <a href="https://github.com/github/copilot.vim" class="custom-link">Neovim</a>, and
+          <a href="https://docs.github.com/en/copilot/getting-started-with-github-copilot?tool=jetbrains#about-github-copilot-and-jetbrains-ides"
+            class="custom-link">JetBrains IDEs.</a>
+          Several unofficial plugins exist for integrating GitHub Copilot with other editors, but be aware that
+          experiences with these plugins may vary.
+        </li>
+
+        <!-- GitHub-->
+        <li>
+          <span class="w3-large" style="font-weight: bold">GitHub:</span> A GitHub account is required for GitHub
+          Copilot integration. If you do not have a GitHub account, create one for free on
+          <a href="https://github.com/" class="custom-link">GitHub.com.</a>
+          Once you have a GitHub account, ensure you enable GitHub Copilot permissions. Follow
+          <a href="https://docs.github.com/en/copilot/quickstart#signing-up-for-github-copilot-for-your-personal-account"
+            class="custom-link">GitHub's official documentation</a>
+          for detailed steps.
+          <br /><br />
+
+          <span class="note w3-large" style="font-weight: bold">*Note:</span>
+          ABC123 Corp. provides you with a subscription to GitHub Copilot through the company business account. You do
+          not need to purchase a subscription. Account administrators will grant you access to GitHub Copilot. If you are
+          experiencing issues activating GitHub Copilot on your account, contact your team manager.
+        </li>
+      </ul>
     </div>
 
-    <script>
-      // Get the button:
-      let mybutton = document.getElementById("myBtn");
-      let mybutton2 = document.getElementById("myBtn2");
-      let btnHidden = false;
+    <!-- Set Up -->
+    <div class="w3-container" id="setup" style="margin-top: 20px">
+      <h1 class="w3-xxlarge brand-secondary">
+        <b>Setting Up GitHub Copilot in VS Code</b>
+      </h1>
+      <hr class="w3-round brand-border" />
+      <ol type="1" class="custom-ol" style="padding-left: 0px">
+        <!-- Launch VS Code -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Launch VS Code</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              If you are launching VS Code for the first time, follow the additional setup prompts before proceeding.
+              <br /><br />
+              <span class="note w3-large" style="font-weight: bold">*Note:</span>
+              You do not need to close any open projects or code files in VS Code to continue.
+            </li>
+          </ul>
+        </li>
 
-      // When the user scrolls down 20px from the top of the document, show the button
-      window.onscroll = function () {
-        scrollFunction();
-      };
+        <!-- Install Extension -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Access the Extension Icon</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Locate the sidebar on your screen's left or right side.
+            </li>
+            <li>
+              Select the square grid-shaped icon called
+              <strong>“Extensions”</strong> or use the keyboard shortcut
+              <code class="bold">Ctrl+Shift+X</code>
+              on <strong>Windows/Linux</strong> or
+              <code class="bold">Shift+CMD+X</code> on <strong>Mac.</strong> <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-twothird">
+                  <img src="assets\images\copilotExt.png" style="width: 40%" onclick="onClick(this)"
+                    alt="VS Code Extensions Icon" />
+                </div>
+              </div>
+            </li>
+            <li>This action opens the Extensions view.</li>
+          </ul>
+        </li>
 
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-        
-        let windowHeight = window.innerHeight;
-        let scrollHeight = document.documentElement.scrollHeight;
-        let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        <!-- Search Extension -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Search for “GitHub Copilot”</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Type <strong>“GitHub Copilot”</strong> into the search bar in the Extensions view. You will see a few
+              results.
+              <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotResults.png" style="width: 40%" onclick="onClick(this)"
+                    alt="Copilot search results" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <!-- Install Extension -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Install GitHub Copilot</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Click the <strong>“Install”</strong> button next to the official
+              GitHub Copilot extension (signified by a checkmark below the
+              name).
+            </li>
+            <li>
+              <span class="bold-italic">(OPTIONAL)</span> Click the GitHub Copilot extension for more information and
+              the option to install. The <strong>“Install”</strong> button is
+              at the top of the page, just below the title <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotInfo.png" style="width: 40%" onclick="onClick(this)"
+                    alt="Copilot extension info page" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="bold-italic">(OPTIONAL)</span> Click the <strong>"down arrow"</strong>
+              next to <strong>“Install”</strong> to choose which version of GitHub Copilot to download.
+              <br /><br />
+              <span class="note w3-large" style="font-weight: bold">*Note:</span>
+              Some newer features might only appear in the pre-release version until officially released. <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotVersion.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Copilot version selection" />
+                </div>
+              </div>
+            </li>
+            <li>
+              Any of these options will install both GitHub Copilot and GitHub
+              Copilot Chat.
+            </li>
+          </ul>
+        </li>
 
-        if (scrollHeight - (scrollPosition + windowHeight) > 100) {
-          // Adjust 100 based on desired proximity to bottom
-          mybutton2.style.display = "block"; // Show 'go to bottom' button when not close to the bottom
-        } else {
-          mybutton2.style.display = "none"; // Hide 'go to bottom' button when near the bottom
-        }
-      }
+        <!-- Sign In -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">
+            Sign In With GitHub
+          </span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              If you are not already signed into GitHub on VS Code, a GitHub 
+              <strong>"Sign-in"</strong> request appears in the bottom right
+              corner.
+              <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\githubSign.png" style="width: 50%" onclick="onClick(this)"
+                    alt="GitHub sign-in request pop-up" />
+                </div>
+              </div>
+            </li>
+            <li>
+              Follow the on-screen instructions to finish your GitHub Copilot installation.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
 
-      // When the user clicks on the button, scroll to the top of the document
-      function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      }
+    <!-- Basics -->
+    <div class="w3-container" id="basics" style="margin-top: 20px">
+      <h1 class="w3-xxlarge brand-secondary"><b>Using GitHub Copilot</b></h1>
+      <hr class="w3-round brand-border" />
+      <ol type="1" class="custom-ol" style="padding-left: 0px">
+        <!-- Launch VS Code -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Open or Create a File in VS Code</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Open an existing code file or create a new one for your chosen programming language.
+            </li>
+          </ul>
+        </li>
 
-      function goToBottom() {
-        document.body.scrollTop = document.body.scrollHeight; // For Safari
-        document.documentElement.scrollTop =
-          document.documentElement.scrollHeight; // For Chrome, Firefox, IE, and Opera
-      }
+        <!-- Install Extension -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Begin Coding</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              As you type, GitHub Copilot makes code suggestions.
+              <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotSugg.png" style="width: 80%" onclick="onClick(this)"
+                    alt="Copilot example suggestions" />
+                </div>
+              </div>
+            </li>
+            <li>
+              <span style="font-weight: bold">Accept Suggestions - </span>
+              Press <strong>“Tab”</strong> on your keyboard to accept the GitHub
+              Copilot suggestion, or hold <strong>“Ctrl”</strong> and tap the <strong>“right arrow key”</strong>
+              to accept parts of the suggestion.
+            </li>
+            <li>
+              <span style="font-weight: bold">Dismiss Suggestions - </span>
+              Press <strong>“Esc”</strong> on your keyboard to dismiss the
+              suggestion or just continue typing to ignore the suggestion.
+            </li>
+            <li>
+              <span class="note w3-large" style="font-weight: bold">*Note:</span>
+              Consult the official
+              <a href="https://docs.github.com/en/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment#keyboard-shortcuts-for-macos"
+                class="custom-link">GitHub Copilot documentation
+              </a>
+              for a complete list of shortcuts across all platforms.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
 
-      function hideButton() {
-        mybutton.style.display = "none";
-        mybutton2.style.display = "none";
-      }
+    <!-- Chat Feature -->
+    <div class="w3-container" id="chat" style="margin-top: 20px">
+      <h1 class="w3-xxlarge brand-secondary">
+        <b>Accessing GitHub Copilot Chat</b>
+      </h1>
+      <hr class="w3-round brand-border" />
+      <ol type="1" class="custom-ol" style="padding-left: 0px">
+        <!-- Open Copilot Chat-->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Open GitHub Copilot Chat</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Use the keyboard command
+              <code class="bold">Ctrl+I</code>
+              on <strong>Windows/Linux</strong> or
+              <code class="bold">CMD+I</code>
+              on <strong>Mac</strong> to reveal the GitHub Copilot chat window.
+            </li>
+          </ul>
+          <strong>OR</strong>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px; padding-top: 10px; padding-bottom: 10px">
+            <li>Right-click inside your open code file.</li>
+            <li>
+              Find and hover over <strong>“Copilot”</strong> in the menu.
+            </li>
+            <li>Click on <strong>“Start Code Chat.”</strong></li>
+            <br />
+            <!-- Photo grid (modal) -->
+            <div class="w3-row-padding" style="padding-left: 40px">
+              <div class="w3-twothird">
+                <img src="assets\images\copilotNoKey.png" style="width: 50%" onclick="onClick(this)"
+                  alt="Copilot chat w/o keyboard shortcut" />
+              </div>
+            </div>
+          </ul>
+        </li>
 
-      // Script to open and close sidebar
-      function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-      }
+        <!-- Type Question -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Ask Your Question</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Type your question and hit <strong>“Enter”</strong> on your
+              keyboard for a response. <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotQA.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Copilot example question and response" />
+                </div>
+              </div>
+            </li>
+          </ul>
+          <strong>OR</strong>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Type a <strong>“/”</strong> slash to see a list of the built-in
+              slash commands. <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotSlash.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Example of Copilot slash commands" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
 
-      function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-      }
+        <!-- Expand Chat -->
+        <li>
+          <span class="w3-large" style="font-weight: bold">Expanded Chat</span>
+          <span class="bold-italic">(OPTIONAL)</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Click <strong>“View in Chat”</strong> after getting a response to see the larger chat window with all your
+              GitHub Copilot questions and answers.
+              <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-half">
+                  <img src="assets\images\copilotChat1.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Example of Copilot chat window 1" />
+                </div>
+                <div class="w3-half">
+                  <img src="assets\images\copilotChat2.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Example of Copilot chat window 2" />
+                </div>
+              </div>
+            </li>
+            <li>
+              For a larger view, click the three dots icon at the top of the chat window and select
+              <strong>“Open Session in Editor.”</strong>
+              <br /><br />
+              <!-- Photo grid (modal) -->
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotOpenSesh.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Copilot Open Session in editor button" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
 
-      // Modal Image Gallery
-      function onClick(element) {
-        document.getElementById("img01").src = element.src;
-        document.getElementById("modal01").style.display = "block";
-        var captionText = document.getElementById("caption");
-        captionText.innerHTML = element.alt;
+        <li>
+          <span class="w3-large" style="font-weight: bold">Clear Expanded Chat</span>
+          <span class="bold-italic">(OPTIONAL)</span>
+          <ul class="w3-ul" style="list-style-type: lower-alpha; padding-left: 40px">
+            <li>
+              Clear your GitHub Copilot Chat history by clicking the
+              <strong>“Clear”</strong> button at the top of the expanded chat window, marked by
+              <strong>"three lines and an x”</strong> icon. <br /><br />
+              <div style="background-color: #ffcccc; padding: 10px; border-radius: 5px;">
+                <span class="warning w3-large" style="font-weight: bold;">Warning:</span>
+                This action will instantly delete your entire chat history without further prompts!
+                <!-- Include more content here if needed -->
+              </div>
+              <br>
+              <div class="w3-row-padding">
+                <div class="w3-rest">
+                  <img src="assets\images\copilotClear.png" style="width: 50%" onclick="onClick(this)"
+                    alt="Copilot Clear button" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
 
-        if (btnHidden == false) {
-          hideButton();
-          btnHidden = true;
-        }
-      }
-    </script>
-  </body>
+    <!-- Closing -->
+    <div class="w3-container" id="closing" style="margin-top: 20px">
+      <h1 class="w3-xxlarge brand-secondary"><b>Dive Deeper</b></h1>
+      <hr class="w3-round brand-border" />
+      <p>
+        GitHub Copilot can greatly boost your productivity as a programmer.
+        Remember always to review and understand the code GitHub Copilot generates.
+        This practice enhances your learning and helps avoid implementing buggy code into
+        your project.
+      </p>
+    </div>
+
+    <!-- End page content -->
+  </div>
+  <div id="buttonContainer">
+    <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+    <button onclick="goToBottom()" id="myBtn2" title="Go to bottom"></button>
+  </div>
+  <!-- W3.CSS Container -->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top: 75px; padding-right: 58px">
+    <p class="w3-right">
+      Created by
+      <a href="https://github.com/Twest19" title="Tim West" target="_blank" class="w3-hover-opacity">Tim West</a>
+    </p>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top: 0" onclick="closeModal()">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image" />
+      <p id="caption"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
